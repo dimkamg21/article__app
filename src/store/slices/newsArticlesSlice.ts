@@ -1,38 +1,31 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { Article } from '../../types/Article';
-import { limitStringLength } from '../../helpers/limitTextLength';
-
-const API_KEY = 'ee10448230dc480e879d39e5b76aa37c';
+import { fetchNewsArticlesFromAPI } from '../../helpers/fetchNewArticlesFromAPI';
 
 export const fetchNewsArticles = createAsyncThunk(
   'newsArticles/fetch',
-  async (page: number, { rejectWithValue }) => {
+  async (page: number, thunkAPI) => {
     try {
-      const response = await fetch(`https://newsapi.org/v2/everything?q=usa&pageSize=10&page=${page}&apiKey=${API_KEY}`);
-      const data = await response.json();
+      const articles = await fetchNewsArticlesFromAPI(page);
+      return articles;
 
-      const articlesWithLimitedText = data.articles.map((article: Article) => ({
-        ...article,
-        description: limitStringLength(article.description, 100),
-        title: limitStringLength(article.title, 55),
-      }));
-
-      return articlesWithLimitedText;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      return rejectWithValue(error.response.data);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
 export interface NewsArticlesState {
   newsArticles: Article[];
+  page: number,
   isLoading: boolean,
   hasError: boolean;
 }
 
 const initialState: NewsArticlesState = {
   newsArticles: [],
+  page: 1,
   isLoading: false,
   hasError: false,
 };
@@ -40,7 +33,16 @@ const initialState: NewsArticlesState = {
 export const newsArticlesSlice = createSlice({
   name: 'newsArticles',
   initialState,
-  reducers: {},
+  reducers: {
+    setPage: (state, action) => {
+      state.page = action.payload;
+    },
+
+    resetPage: (state) => {
+      state.page = 1;
+    },
+  },
+
   extraReducers: (builder) => {
     builder.addCase(fetchNewsArticles.pending, (state) => {
       state.isLoading = true;
@@ -59,5 +61,6 @@ export const newsArticlesSlice = createSlice({
   },
 });
 
+export const { setPage, resetPage } = newsArticlesSlice.actions;
 export default newsArticlesSlice.reducer;
 

@@ -1,9 +1,7 @@
 @import '../../utils/utils';
 
 .newsArticles {
-  &__list {
-    // margin-top: 50px;
-    
+  &__list {    
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
@@ -17,9 +15,41 @@
     @include onDesktop {
       grid-template-columns: repeat(3, 1fr);
     }
+
+    &--loader {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__addMore--button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $card-width;
+    height: 32px;
+    margin: 50px auto;
+    background: $main-color;
+    color: #fff;
+
+    @extend %body-text;
+
+    @include onTablet {
+      height: 42px;
+      width: 85%;
+    }
+
+    @include onDesktop {
+      width: 100%;
+    }
+
+    &:hover {
+      box-shadow: 1px 2px $secondary-color;
+    }
   }
 
   &__not-found {
     @extend %main-text;
+
+    grid-column: 1 / -1;
   }
 }

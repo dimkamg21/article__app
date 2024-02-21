@@ -1,30 +1,46 @@
-# React + TypeScript + Vite
+# Article app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An app using React.js, that stores, lists and presents articles from api and created by user.
 
-Currently, two official plugins are available:
+## Links:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [DEMO](https://dimkamg21.github.io/article__app/)
 
-## Expanding the ESLint configuration
+## Technologies
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React
+- React Router
+- Redux Toolkit
+- TypeScript
+- SCSS
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## Setup
+
+1. (Recommended)Use lts version of node.js <br>`
+
+2. Clone the repository to your local machine, open terminal (GitBash for Windows users) and clone repo with command bellow:
+
+```sh
+git clone https://github.com/dimkamg21/article__app.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+3. Open editor, set up project and install necessary packages in the code-editor you use:
+
+```sh
+$ npm install
+```
+
+4. Open the project in browser:
+
+```sh
+$ npm run dev
+```
+
+
+## Author
+
+- GitHub - [Dmytro Hlukhenkyi](https://github.com/dimkamg21)
+
+- LinkedIn - [Dmytro Hlukhenkyi](https://www.linkedin.com/in/dmytro-hlukhenkyi/)
+

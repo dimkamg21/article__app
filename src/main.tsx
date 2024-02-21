@@ -5,9 +5,9 @@ import store from './store/store.ts'
 import { Root } from './Root.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+  <React.Fragment>
     <Provider store={store}>
       <Root />
     </Provider>
-  </React.StrictMode>,
+  </React.Fragment>,
 )
