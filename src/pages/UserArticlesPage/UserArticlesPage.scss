@@ -43,13 +43,12 @@
     gap: 20px;
 
     @include onTablet {
-      justify-items: start;
 
       grid-template-columns: repeat(2, 1fr);
     }
 
     @include onDesktop {
-      justify-content: start;
+      justify-items: start;
       grid-template-columns: repeat(3, 1fr);
     }
   }
