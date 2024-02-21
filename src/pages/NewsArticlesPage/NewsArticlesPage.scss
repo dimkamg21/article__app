@@ -1,0 +1,25 @@
+@import '../../utils/utils';
+
+.newsArticles {
+  &__list {
+    // margin-top: 50px;
+    
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    gap: 20px;
+
+    @include onTablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__not-found {
+    @extend %main-text;
+  }
+}
