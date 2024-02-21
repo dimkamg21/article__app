@@ -26,7 +26,11 @@ export const NewsArticlesPage = () => {
   return (
     <div className="newsArticles">
       <div className="newsArticles__list">
-        {isLoading && page === 1 && <Loader/>}
+        {isLoading && page === 1 && (
+          <div className="newsArticles__list--loader">
+            <Loader/>
+          </div>
+        )}
 
         {(!isLoading && hasError) && (
           <h2 className="newsArticles__not-found">Something went wrong during loading</h2>

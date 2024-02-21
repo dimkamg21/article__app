@@ -91,7 +91,7 @@ export const UserArticlesPage = () => {
           <h2 className="userArticles__not-found">You dont have any articles yet</h2>
         )}
 
-        {filteredArticles.length === 0 ? (
+        {(filteredArticles.length === 0 && userArticles.length !== 0)? (
           <h2 className="userArticles__not-found">Article was not found</h2>
         ) : (
           filteredArticles.map((item) => (

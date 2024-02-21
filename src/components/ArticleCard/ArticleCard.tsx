@@ -6,8 +6,8 @@ import { PinIcon } from '../../assets/icons/PinIcon';
 import { ArticleOrigin } from '../../types/ArticleOrigin';
 import { useAppSelector } from '../../helpers/hooks/hooks';
 import { pinArticle, removeArticle, unpinArticle } from '../../store/slices/userArticlesSlice';
-import './ArticleCard.scss';
 import { UnpinIcon } from '../../assets/icons/UnpinIcon';
+import './ArticleCard.scss';
 
 type Props = {
   article: Article;
@@ -27,11 +27,16 @@ export const ArticleCard: React.FC<Props> = ({ article, origin }) => {
 
   const dispatch = useDispatch();
 
+  const isPinnedArticle = publishedAt === pinnedArticle?.publishedAt;
+
   const handleRemoveButton = () => {
+    if (isPinnedArticle) {
+      dispatch(unpinArticle());
+    }
+
     dispatch(removeArticle(publishedAt));
   };
   
-  const isPinnedArticle = publishedAt === pinnedArticle?.publishedAt;
 
   const handlePinButton= () => {
     if (isPinnedArticle) {
