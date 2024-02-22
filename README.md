@@ -17,7 +17,7 @@ An app using React.js, that stores, lists and presents articles from api and cre
 
 ## Setup
 
-1. (Recommended)Use lts version of node.js <br>`
+1. (Recommended)Use lts version of node.js <br>
 
 2. Clone the repository to your local machine, open terminal (GitBash for Windows users) and clone repo with command bellow:
 
