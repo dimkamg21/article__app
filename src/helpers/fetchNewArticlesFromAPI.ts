@@ -1,10 +1,10 @@
 import { Article } from '../types/Article';
 import { limitStringLength } from './limitTextLength';
 
-const API_KEY = '83ecf594ab5b45378737d06162869a68';
+const apiKey = process.env.REACT_APP_API_KEY;
 
 export async function fetchNewsArticlesFromAPI(page: number) {
-  const response = await fetch(`https://newsapi.org/v2/everything?q=usa&pageSize=10&page=${page}&apiKey=${API_KEY}`);
+  const response = await fetch(`https://newsapi.org/v2/everything?q=usa&pageSize=10&page=${page}&apiKey=${apiKey}`);
 
   if (!response.ok) {
     throw new Error('Network response was not ok');
